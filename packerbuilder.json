@@ -1,0 +1,33 @@
+{
+    "variables" : {
+        "aws_access_key" : "",
+        "aws_secret_key" : "",
+        "aws_region" : "",
+        "aws_ami_image" : "",
+        "aws_instance_type" : "t2.micro",
+        "image_version-id" : "",
+        "aws_communicator" : "ssh",
+        "source_ami_id" : "ami-",
+        "userlogin_name" : "admin",
+        "ami_name_id" : "Centosadmin",
+        "vpc-id" : "",
+        "subnet-ids" : ""
+        
+    },
+    "builders" : [{
+        "type" : "amazon-ebs",
+        "communicator" : "{{user `aws_communicator`}}",
+        "access_key" : "{{user `aws_access_key`}}",
+        "secret_key" : "{{user `aws_secret_key`}}",
+        "region" : "{{user `aws_region`}}",
+        "source_ami" : "{{user `aws_ami_image`}}",
+        "ami_name" : "Testing-{{user `image_version_id`}}",
+        "ssh_username" : "{{user `userlogin_name`}}",
+        "instance_type" : "{{user `aws_instance_type`}}",
+        "vpc_id" : "{{user `vpc_id`}}",
+        "subnet_id" : "{{user `subnet_id`}}" 
+
+
+
+    }]
+}
